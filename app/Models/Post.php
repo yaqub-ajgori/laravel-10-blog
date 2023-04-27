@@ -31,6 +31,14 @@ class Post extends Model
         return $this->belongsToMany(Category::class, 'category_posts');
     }
 
+    public function getThumbnail(): string
+    {
+        if(str_starts_with($this->thumbnail, 'http')){
+            return $this->thumbnail;
+        }
+        return asset('storage/'.$this->thumbnail);
+    }
+
     public function getFormattedDate(): string
     {
         return $this->created_at->format('F jS Y');

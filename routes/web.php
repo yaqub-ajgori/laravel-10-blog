@@ -5,5 +5,8 @@ use App\Http\Controllers\PostController;
 
 
 
-// Home & Post Routes
+// Home Routes
 Route::get('/', [PostController::class, 'index'])->name('home');
+
+// single post route
+Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
