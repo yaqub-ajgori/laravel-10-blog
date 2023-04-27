@@ -30,4 +30,14 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class, 'category_posts');
     }
+
+    public function getFormattedDate(): string
+    {
+        return $this->created_at->format('F jS Y');
+    }
+
+    public function shortBody(): string
+    {
+        return substr($this->content, 0, 200);
+    }
 }
