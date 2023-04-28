@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -43,5 +44,17 @@ class PostController extends Controller
         ->first();
 
         return view('posts.show', compact('post', 'next', 'previous'));
+    }
+
+    public function byCategory(Category $category){
+        $posts =Post::query()
+        ->join('category_posts', 'posts.id', '=', 'category_posts.post_id')
+        ->where('category_posts.category_id', $category->id)
+        ->where('is_published', true)
+        ->whereDate('published_at', '<=', Carbon::now())
+        ->orderBy('published_at', 'desc')
+        ->paginate(10);
+
+        return view('home', compact('posts'));
     }
 }

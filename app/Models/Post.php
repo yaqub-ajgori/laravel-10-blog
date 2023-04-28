@@ -39,9 +39,14 @@ class Post extends Model
         return asset('storage/'.$this->thumbnail);
     }
 
+    protected $casts = [
+        'is_published' => 'boolean',
+        'published_at' => 'datetime',
+    ];
+
     public function getFormattedDate(): string
     {
-        return $this->created_at->format('F jS Y');
+        return $this->published_at->format('F jS Y');
     }
 
     public function shortBody(): string

@@ -1,6 +1,17 @@
 <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
 
     <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+        <h3 class="text-xl font-semibold mb-2">All Categories</h3>
+        <ul>
+            @foreach ($categories as $category)
+            <li class="{{ request('category')?->slug == $category->slug ? 'bg-blue-600 text-white' : '' }}">
+                <a href="{{ route('by-category', $category) }}">{{ $category->title }} ({{ $category->total }})</a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+
+    <div class="w-full bg-white shadow flex flex-col my-4 p-6">
         <p class="text-xl font-semibold pb-5">
             {{ \App\Models\SidebarWidget::getTitle('about-us') }}
         </p>
