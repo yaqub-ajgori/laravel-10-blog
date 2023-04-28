@@ -68,8 +68,7 @@
                 @foreach ($categories as $category)
                 <a href="{{ route('by-category', $category) }}" class="hover:bg-blue-700 hover:text-white rounded py-2 px-4 mx-2">{{ $category->title }}</a>
                 @endforeach
-                <a href="#" class="hover:bg-blue-700 hover:text-white rounded py-2 px-4 mx-2">About</a>
-                <a href="#" class="hover:bg-blue-700 hover:text-white rounded py-2 px-4 mx-2">Contact</a>
+                <a href="{{ route('about-us') }}" class="hover:bg-blue-700 hover:text-white rounded py-2 px-4 mx-2">About</a>
             </div>
         </div>
     </nav>
@@ -79,9 +78,6 @@
 
         <!-- Posts Section -->
         {{ $slot }}
-
-        <!-- Sidebar Section -->
-        <x-sidebar></x-sidebar>
 
     </div>
     <footer class="w-full border-t bg-white">

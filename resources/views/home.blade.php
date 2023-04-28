@@ -5,8 +5,12 @@
         <x-post-item :post="$post"></x-post-item>
         @endforeach
 
+
         <!-- Pagination -->
         {{ $posts->onEachSide(1)->links() }}
 
     </section>
+
+        <!-- Sidebar Section -->
+        <x-sidebar></x-sidebar>
 </x-app-layout>
