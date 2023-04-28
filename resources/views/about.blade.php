@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout meta-title="Yaqub Blog" meta-description="About Us">
 
     <div class="py-2 px-4 bg-slate-100">
         <h2 class="text-4xl font-semibold mb-2 text-center">{{ $widget->title }}</h2>

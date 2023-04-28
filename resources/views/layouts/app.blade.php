@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Yaqub Blog</title>
-    <meta name="author" content="David Grzyb">
+    <title>{{ $metaTitle ?: 'Yaqub Personal Blog' }}</title>
+    <meta name="description" content="{{ $metaDescription}}">
+    <meta name="author" content="Yaqub">
 
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">

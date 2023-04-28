@@ -1,4 +1,4 @@
-<x-app-layout meta-title="Yaqub Blog" meta-description="Home Page">
+<x-app-layout :meta-title="$category->title" meta-description="Yaqub Blog">
     <section class="w-full md:w-2/3 flex flex-col items-center px-3">
 
         @foreach ($posts as $post)

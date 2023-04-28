@@ -19,6 +19,8 @@ class Post extends Model
         'is_published',
         'published_at',
         'user_id',
+        'meta_title',
+        'meta_description',
     ];
 
     public function user():BelongsTo
