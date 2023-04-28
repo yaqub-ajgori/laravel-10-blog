@@ -9,7 +9,7 @@
             <div class="bg-white flex flex-col justify-start p-6">
                 <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">
                     @foreach ($post->categories as $category)
-                    {{ $category->title }}
+                    {{ $category->title }}/
                     @endforeach
                 </a>
                 <h2 class="text-3xl font-bold hover:text-gray-700 pb-4">
