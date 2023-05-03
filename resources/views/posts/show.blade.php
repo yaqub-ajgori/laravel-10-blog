@@ -17,6 +17,7 @@
                 </h2>
                 <p href="#" class="text-sm pb-3">
                     By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user?->name }}</a>, Published on {{ $post->getFormattedDate() }}
+                    | {{ $post->getPostReadTime()['reading_time'] }} min read, {{ $post->getPostReadTime()['word_count'] }} words
                 </p>
                 <div class="flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

@@ -56,16 +56,6 @@ class Post extends Model
         return substr($this->content, 0, 200);
     }
 
-    // public function viewedBy(User $user): bool
-    // {
-    //     return $this->views->contains($user);
-    // }
-
-    // public function view(User $user): void
-    // {
-    //     $this->views()->attach($user);
-    // }
-
     public function views(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'post_views');
@@ -84,6 +74,20 @@ class Post extends Model
         }
         return $count;
     }
+
+    public function getPostReadTime() {
+        // Count the number of words in the post content
+        $word_count = str_word_count(strip_tags($this->content));
+
+        // Calculate the reading time based on the word count and an average reading speed of 200 words per minute
+        $reading_time = ceil($word_count / 200);
+
+        // Return an array with the word count and reading time
+        return array(
+          'word_count' => $word_count,
+          'reading_time' => $reading_time
+        );
+      }
 
 
 }
