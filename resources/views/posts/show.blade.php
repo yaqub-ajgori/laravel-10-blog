@@ -18,7 +18,7 @@
                 <p href="#" class="text-sm pb-3">
                     By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user?->name }}</a>, Published on {{ $post->getFormattedDate() }}
                 </p>
-                <h1 class="text-2xl font-bold pb-3">Introduction</h1>
+                <h1 class="text-2xl font-bold pb-3">{{ $post->viewedByCountFormatted() }}</h1>
                 <p class="pb-3">
                     {!! $post->content !!}
                 </p>

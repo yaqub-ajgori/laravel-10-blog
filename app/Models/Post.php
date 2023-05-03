@@ -55,4 +55,35 @@ class Post extends Model
     {
         return substr($this->content, 0, 200);
     }
+
+    // public function viewedBy(User $user): bool
+    // {
+    //     return $this->views->contains($user);
+    // }
+
+    // public function view(User $user): void
+    // {
+    //     $this->views()->attach($user);
+    // }
+
+    public function views(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'post_views');
+    }
+
+    public function viewedByCount(): int
+    {
+        return $this->views->count();
+    }
+
+    public function viewedByCountFormatted(): string
+    {
+        $count = $this->viewedByCount();
+        if($count > 1000){
+            return round($count / 1000, 1).'k';
+        }
+        return $count;
+    }
+
+
 }
