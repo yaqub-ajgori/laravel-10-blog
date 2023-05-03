@@ -58,7 +58,8 @@ class PostResource extends Resource
                     Forms\Components\Select::make('category_id')
                     ->multiple()
                     ->relationship('categories', 'title')
-                    ->required(),
+                    ->required()
+                    ->preload(),
                 ])->columnSpan(4),
             ])->columns(12);
     }

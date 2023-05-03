@@ -16,13 +16,14 @@
                     {{ $post->title }}
                 </h2>
                 <p href="#" class="text-sm pb-3">
-                    By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user->name }}</a>, Published on {{ $post->getFormattedDate() }}
+                    By <a href="#" class="font-semibold hover:text-gray-800">{{ $post->user?->name }}</a>, Published on {{ $post->getFormattedDate() }}
                 </p>
                 <h1 class="text-2xl font-bold pb-3">Introduction</h1>
                 <p class="pb-3">
                     {!! $post->content !!}
                 </p>
             </div>
+            <livewire:upvote-downvote :post="$post"/>
         </article>
 
         <div class="w-full flex pt-6">
@@ -47,4 +48,7 @@
            </div>
         </div>
     </section>
+
+        <!-- Sidebar Section -->
+        <x-sidebar></x-sidebar>
 </x-app-layout>
