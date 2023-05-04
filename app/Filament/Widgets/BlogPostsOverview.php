@@ -18,16 +18,16 @@ class BlogPostsOverview extends Widget
     protected function getViewData(): array
     {
         return [
-            'postView' => PostView::where('post_id', $this->record->id)
+            'postView' => PostView::where('post_id', $this->record?->id)
             ->where('user_id', auth()->user()->id)
             ->count(),
 
-            'upvote'=> UpvoteDownvote::where('post_id', $this->record->id)
+            'upvote'=> UpvoteDownvote::where('post_id', $this->record?->id)
             ->where('user_id', auth()->user()->id)
             ->where('upvote', 1)
             ->count(),
 
-            'downvote'=> UpvoteDownvote::where('post_id', $this->record->id)
+            'downvote'=> UpvoteDownvote::where('post_id', $this->record?->id)
             ->where('user_id', auth()->user()->id)
             ->where('upvote', 0)
             ->count(),
